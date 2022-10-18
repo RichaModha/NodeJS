@@ -35,7 +35,7 @@ app.use(body_parser.urlencoded({ extended: true }));
     })
 })*/
 
-app.get('/all_tasks',function(request,response)
+app.get('/all_tasks/',function(request,response)
 {
     dbConnection.query("Select * from tasks where completed=0",function(error,result,field)
     {
@@ -43,7 +43,7 @@ app.get('/all_tasks',function(request,response)
         {
             throw error;
         }
-        return response.send({error:false,data:result,message:''});
+        return response.send({error:false,data:result,message:'Error'});
     })
 })
 
